@@ -1,0 +1,8 @@
+document.documentElement.classList.add('js');
+const nav=document.querySelector('.nav'),b=document.querySelector('.burger');
+if(b){b.addEventListener('click',()=>{const o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o)});nav.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')))}
+if('IntersectionObserver'in window){const o=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}}),{threshold:.05});document.querySelectorAll('.rv').forEach(el=>o.observe(el))}else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+document.querySelectorAll('.gth').forEach(t=>t.addEventListener('click',()=>{const m=document.querySelector('.gmain picture');m.querySelector('source').srcset=t.dataset.webp;m.querySelector('img').src=t.dataset.jpg;document.querySelectorAll('.gth').forEach(x=>x.classList.remove('on'));t.classList.add('on')}));
+setTimeout(()=>document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')),1200);
+(function(){const g=id=>document.getElementById(id);if(!g('cargrid'))return;const f=()=>{let n=0;document.querySelectorAll('.fcar').forEach(c=>{const ok=(!g('f-m').value||c.dataset.m==g('f-m').value)&&(g('f-price').value=='0'||+c.dataset.price<=+g('f-price').value)&&(g('f-dist').value=='0'||+c.dataset.dist<=+g('f-dist').value);c.classList.toggle('hide',!ok);if(ok)n++});g('f-count').textContent=n+' cars'};['f-m','f-price','f-dist'].forEach(i=>g(i).addEventListener('change',f));f()})();
+document.querySelectorAll('.gt').forEach(t=>t.addEventListener('click',()=>{document.getElementById('gm').src=t.src;document.querySelectorAll('.gt').forEach(x=>x.classList.remove('on'));t.classList.add('on')}));
